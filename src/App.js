@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider.js';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+
+import PokeView from './components/PokeView'
 import './App.css';
 
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+});
+
 class App extends Component {
+  
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <MuiThemeProvider theme={theme}>
+        <section className=''>
+        <PokeView />
+        </section>
+        </MuiThemeProvider>
       </div>
     );
   }
